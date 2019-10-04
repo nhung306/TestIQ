@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">TestIQ</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Test IQ</string>
+    <string name="nav_header_subtitle">TestIQ@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_exam">Exam</string>
+    <string name="menu_rate_level">Rate level</string>
+
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="create_now">Create now</string>
+    <string name="dont_have_an_account">Dont have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <string name="hello">Hello!</string>
+    <string name="communicate">Communicate</string>
+    <string name="logout">Logout</string>
+
+    <string name="Dang_ky">Đăng ký</string>
+    <string name="Ho_ten">Họ tên</string>
+    <string name="Mat_khau">Mật khẩu</string>
+    <string name="confirm">Xác nhận mật khẩu</string>
+    <string name="Chua_da_tai_khoan">Bạn đã có tài khoản?</string>
+    <string name="Dang_nhap">Đăng nhập</string>
+    <string name="play_now">Hãy bắt đầu ngay bây giờ</string>
+    <string name="Chua_co_tai_khoan">Bạn chưa có tài khoản?</string>
+    <string name="Trang_chu">Trang chủ</string>
+    <string name="Bai_thi">Bài thi</string>
+    <string name="Danh_gia">Đánh giá</string>
+    <string name="Dang_xuat">Đăng xuất</string>
+    <string name="Infor_home_title">NHỮNG ĐIỀU CẦN BIẾT TRƯỚC KHI LÀM BÀI TEST IQ</string>
+    <string name="Infor_home_content">Testiq.vn - Tổ chức trí tuệ cao Việt Nam hân hoan chào mừng các bạn. Chỉ số thông minh (viết tắt là IQ - Intelligence Quotient) là điểm số để đánh giá ước tính trí thông minh của con người, được thu thập từ một số bài Test IQ tiêu chuẩn hóa. Lịch sử trước đây, chỉ số IQ do nhà khoa học Francis Galton người Anh đã đưa ra trong quyển Hereditary Genius ở cuối thế kỷ 19. Vào năm 1904, chính phủ Pháp giao cho nhà tâm lý học Alfred Binet phải tạo ra một bài test gồm một loạt các câu đố IQ để phân loại được trẻ em có khả năng logic cao và trẻ em bình thường. Cách tính chỉ số thông minh lúc đó dựa trên điểm tuổi tinh thần của một người, tức là lấy thương số giữa tuổi trí tuệ và tuổi thực tế, rồi lấy kết quả nhân với 100 để ra được điểm IQ của họ. Tuy nhiên phương pháp tính điểm này về sau đã bộc lộ khá nhiều khuyết điểm. Để cải thiện khuyết điểm này, Lewis M. Terman – một giáo sư tâm lý học người Mỹ đã phát triển bài test IQ ban đầu thành bài trắc nghiệm IQ hoàn thiện vào năm 1916 (cũng có nguồn tài liệu nói rằng bài IQ test được phát triển bởi nhà tâm lý học và triết học Wilhelm Stern người Đức năm 1912). Ông đặt tên cho bài trắc nghiệm của mình là Stanford-Binet. Cách thức tính điểm của bài kiểm tra IQ này dựa trên điểm số trung bình của một mẫu chuẩn là 100 để từ đó hình thành cách tính điểm phổ biến theo độ lệch chuẩn 15 (hoặc 16, 24). Với cách tính điểm theo định nghĩa này thì khoảng 2/3 dân số thế giới có IQ 85 đến 115, khoảng 2% dân số có điểm trên 130 và 2% có điểm dưới 70.</string>
+    <string name="Cau_hoi">Câu hỏi:</string>
+    <string name="Nop_bai">Nộp bài</string>
+    <string name="title_activity_exam">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+</resources>

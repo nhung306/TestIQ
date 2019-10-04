@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "832158613169",
+    "firebase_url": "https://testiq-174de.firebaseio.com",
+    "project_id": "testiq-174de",
+    "storage_bucket": "testiq-174de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832158613169:android:4bd60724c0fc50b524ec90",
+        "android_client_info": {
+          "package_name": "com.example.testiq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832158613169-81gchao57c4vcunjos1uktujthmqcsu1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.testiq",
+            "certificate_hash": "d772492a95ee351f481e357cdb2b0bbbc061b780"
+          }
+        },
+        {
+          "client_id": "832158613169-g284lrns0ihmgc0jcfj53i3bk4105rk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj1gAv77g2wiwn_kUUl46DY35yhmdxHhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832158613169-g284lrns0ihmgc0jcfj53i3bk4105rk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
