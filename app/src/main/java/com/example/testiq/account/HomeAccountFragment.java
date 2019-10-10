@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.testiq.R;
-import com.example.testiq.ui.account.LoginFragment;
 
 public class HomeAccountFragment extends Fragment {
     private  View v;

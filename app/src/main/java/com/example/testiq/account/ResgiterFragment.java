@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.testiq.R;
-import com.example.testiq.ui.account.LoginFragment;
+import com.example.testiq.account.LoginFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,7 +88,7 @@ public class ResgiterFragment extends Fragment {
         txt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new com.example.testiq.ui.account.LoginFragment());
+                loadFragment(new LoginFragment());
             }
         });
     }

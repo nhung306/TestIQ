@@ -42,8 +42,35 @@
     <string name="Bai_thi">Bài thi</string>
     <string name="Danh_gia">Đánh giá</string>
     <string name="Dang_xuat">Đăng xuất</string>
-    <string name="Infor_home_title">NHỮNG ĐIỀU CẦN BIẾT TRƯỚC KHI LÀM BÀI TEST IQ</string>
-    <string name="Infor_home_content">Testiq.vn - Tổ chức trí tuệ cao Việt Nam hân hoan chào mừng các bạn. Chỉ số thông minh (viết tắt là IQ - Intelligence Quotient) là điểm số để đánh giá ước tính trí thông minh của con người, được thu thập từ một số bài Test IQ tiêu chuẩn hóa. Lịch sử trước đây, chỉ số IQ do nhà khoa học Francis Galton người Anh đã đưa ra trong quyển Hereditary Genius ở cuối thế kỷ 19. Vào năm 1904, chính phủ Pháp giao cho nhà tâm lý học Alfred Binet phải tạo ra một bài test gồm một loạt các câu đố IQ để phân loại được trẻ em có khả năng logic cao và trẻ em bình thường. Cách tính chỉ số thông minh lúc đó dựa trên điểm tuổi tinh thần của một người, tức là lấy thương số giữa tuổi trí tuệ và tuổi thực tế, rồi lấy kết quả nhân với 100 để ra được điểm IQ của họ. Tuy nhiên phương pháp tính điểm này về sau đã bộc lộ khá nhiều khuyết điểm. Để cải thiện khuyết điểm này, Lewis M. Terman – một giáo sư tâm lý học người Mỹ đã phát triển bài test IQ ban đầu thành bài trắc nghiệm IQ hoàn thiện vào năm 1916 (cũng có nguồn tài liệu nói rằng bài IQ test được phát triển bởi nhà tâm lý học và triết học Wilhelm Stern người Đức năm 1912). Ông đặt tên cho bài trắc nghiệm của mình là Stanford-Binet. Cách thức tính điểm của bài kiểm tra IQ này dựa trên điểm số trung bình của một mẫu chuẩn là 100 để từ đó hình thành cách tính điểm phổ biến theo độ lệch chuẩn 15 (hoặc 16, 24). Với cách tính điểm theo định nghĩa này thì khoảng 2/3 dân số thế giới có IQ 85 đến 115, khoảng 2% dân số có điểm trên 130 và 2% có điểm dưới 70.</string>
+
+    //home
+    <string name="Infor_home_title">Những điều cần biết trước khi làm bài TEST IQ</string>
+    <string name="Infor_home_content">Ứng dụng TestIQ - xin chào mừng các bạn.</string>
+    <string name="content1">
+        Chỉ số thông minh (viết tắt là IQ - Intelligence Quotient) là điểm số để
+        đánh giá ước tính trí thông minh của con người, được thu thập từ một số bài Test IQ tiêu chuẩn hóa.
+    </string>
+    <string name="content2">
+        Chỉ số thông minh (viết tắt là IQ - Intelligence Quotient) là điểm số để đánh giá ước tính trí thông minh của con người,
+        được thu thập từ một số bài Test IQ tiêu chuẩn hóa.
+    </string>
+    <string name="content3">
+        Lịch sử trước đây, chỉ số IQ do nhà khoa học Francis Galton người Anh đã đưa ra trong quyển Hereditary Genius ở cuối thế kỷ 19.
+        Vào năm 1904, chính phủ Pháp giao cho nhà tâm lý học Alfred Binet phải tạo ra một bài test gồm một loạt các câu đố IQ để phân loại được trẻ em có khả năng logic cao và trẻ em bình thường.
+    </string>
+    <string name="content4">
+        Cách tính chỉ số thông minh lúc đó dựa trên điểm tuổi tinh thần của một người, tức là lấy thương số giữa tuổi trí tuệ và tuổi thực tế, rồi lấy kết quả nhân với 100 để ra được điểm IQ của họ.
+        Tuy nhiên phương pháp tính điểm này về sau đã bộc lộ khá nhiều khuyết điểm. Để cải thiện khuyết điểm này, Lewis M. Terman –
+        một giáo sư tâm lý học người Mỹ đã phát triển bài test IQ ban đầu thành bài trắc nghiệm IQ hoàn thiện vào năm 1916
+        (cũng có nguồn tài liệu nói rằng bài IQ test được phát triển bởi nhà tâm lý học và triết học Wilhelm Stern người Đức năm 1912).
+        Ông đặt tên cho bài trắc nghiệm của mình là Stanford-Binet.
+    </string>
+    <string name="content5">
+        Cách thức tính điểm của bài kiểm tra IQ này dựa trên điểm số trung bình của một mẫu chuẩn là 100 để từ đó hình thành
+        cách tính điểm phổ biến theo độ lệch chuẩn 15 (hoặc 16, 24). Với cách tính điểm theo định nghĩa này thì khoảng 2/3 dân số
+        thế giới có IQ 85 đến 115, khoảng 2% dân số có điểm trên 130 và 2% có điểm dưới 70.
+    </string>
+    //exam
     <string name="Cau_hoi">Câu hỏi:</string>
     <string name="Nop_bai">Nộp bài</string>
     <string name="title_activity_exam">Sign in</string>
@@ -58,4 +85,10 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="quay_lai">Quay lại</string>
+    <string name="lam_bai">Làm bài</string>
+    <string name="time">Thời gian làm bài</string>
+    <string name="bai">Bài làm</string>
+    <string name="nop_bai">Nộp bài</string>
+
 </resources>

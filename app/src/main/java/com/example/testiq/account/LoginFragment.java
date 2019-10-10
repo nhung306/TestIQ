@@ -1,4 +1,4 @@
-package com.example.testiq.ui.account;
+package com.example.testiq.account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -71,7 +71,6 @@ public class LoginFragment extends Fragment {
             }
         });
     }
-
     private void even() {
         loadAccount();
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -84,15 +83,12 @@ public class LoginFragment extends Fragment {
                      if (username.equals(users.get(i).getUsername()) && pass.equals(users.get(i).getPassword())) {
                          Toast.makeText(v.getContext(),"Chào mừng đến với ứng dụng Test IQ",Toast.LENGTH_SHORT).show();
                          Intent intent = new Intent(v.getContext(), MainActivity.class);
-                        startActivity(intent);
+                         startActivity(intent);
                      }
                  }
-                 if ((!username.equals(user.getUsername())) && (pass.equals(user.getPassword()))){
+                 if(!username.equals(user.getUsername()) && !pass.equals(user.getPassword()) ){
                     Toast.makeText(v.getContext(),"Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                  }
-                 if ((username.equals(user.getUsername())) && (!pass.equals(user.getPassword()))){
-                    Toast.makeText(v.getContext(),"Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
-                }
             }
         });
         txt_register.setOnClickListener(new View.OnClickListener() {
