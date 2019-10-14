@@ -17,9 +17,9 @@
             android:icon="@drawable/ic_menu_rate_level"
             android:title="@string/Danh_gia" />
         <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_logout"
-            android:title="@string/Dang_xuat" />
+            android:id="@+id/nav_user"
+            android:icon="@drawable/ic_account"
+            android:title="@string/tai_khoan" />
     </group>
 
 </menu>

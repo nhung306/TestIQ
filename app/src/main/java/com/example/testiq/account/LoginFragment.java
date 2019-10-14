@@ -1,6 +1,7 @@
 package com.example.testiq.account;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,8 +19,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.testiq.MainActivity;
 import com.example.testiq.R;
-import com.example.testiq.account.ResgiterFragment;
-import com.example.testiq.account.User;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+import static android.content.Context.MODE_PRIVATE;
 
 public class LoginFragment extends Fragment {
     private View v;
@@ -42,6 +42,9 @@ public class LoginFragment extends Fragment {
     private ArrayList <User> users = new ArrayList<>();
     private FirebaseDatabase mData;
     private DatabaseReference mRefer;
+    private String username,pass;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    private SharedPreferences sharedPreferences;
     private User user;
 
     @Nullable
@@ -50,6 +53,7 @@ public class LoginFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_login,container,false);
         findviewbyid();
         even();
+
         return v;
     }
 
@@ -76,16 +80,25 @@ public class LoginFragment extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = edit_name.getText().toString();
-                String pass = edit_pass.getText().toString();
-
+                username = edit_name.getText().toString();
+                pass = edit_pass.getText().toString();
                  for (int i =0; i<=users.size()-1;i++){
                      if (username.equals(users.get(i).getUsername()) && pass.equals(users.get(i).getPassword())) {
                          Toast.makeText(v.getContext(),"Chào mừng đến với ứng dụng Test IQ",Toast.LENGTH_SHORT).show();
                          Intent intent = new Intent(v.getContext(), MainActivity.class);
                          startActivity(intent);
+
+                         sharedPreferences= getActivity().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                         SharedPreferences.Editor editor = sharedPreferences.edit();
+                         editor.putString("Name",username);
+                         editor.putString("Pass", pass);
+                         editor.putString("Email",users.get(i).getEmail());
+                         editor.apply();
+
                      }
                  }
+
+
                  if(!username.equals(user.getUsername()) && !pass.equals(user.getPassword()) ){
                     Toast.makeText(v.getContext(),"Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                  }

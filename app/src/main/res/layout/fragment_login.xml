@@ -45,6 +45,17 @@
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_login_lock"
+                android:layout_marginLeft="10dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +64,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_lock"
                 android:drawablePadding="16dp"
                 app:passwordToggleEnabled="true"
                 android:inputType="textPassword"
@@ -63,6 +73,7 @@
                 android:id="@+id/edit_login_pass"
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_Sign_In"

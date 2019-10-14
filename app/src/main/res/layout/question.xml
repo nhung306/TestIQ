@@ -1,65 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Cau_hoi"
-        android:id="@+id/tvQues"
-        android:textColor="#3F3434"
-        android:textSize="14dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/txt_quesContent"
-        android:layout_marginStart="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:layout_marginLeft="8dp" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <RadioGroup
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radio">
-            <RadioButton
-                android:id="@+id/radio_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="cau hoi 1" />
+            android:text="@string/Cau_hoi"
+            android:id="@+id/tvQues"
+            android:textColor="#3F3434"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_quesContent"
+            android:layout_marginStart="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginLeft="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-            <RadioButton
-                android:id="@+id/radio_2"
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cau hoi 1" />
-            <RadioButton
-                android:id="@+id/radio_3"
-                android:layout_width="match_parent"
+                android:id="@+id/radio">
+                <RadioButton
+                    android:id="@+id/radio_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cau hoi 1" />
+
+                <RadioButton
+                    android:id="@+id/radio_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cau hoi 1" />
+                <RadioButton
+                    android:id="@+id/radio_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cau hoi 1" />
+                <RadioButton
+                    android:id="@+id/radio_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cau hoi 1" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnKq"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="cau hoi 1" />
-            <RadioButton
-                android:id="@+id/radio_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="cau hoi 1" />
-        </RadioGroup>
+                android:layout_gravity="center|bottom"
+                android:background="@drawable/custom_button"
+                android:text="@string/Nop_bai"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/radio" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.example.testiq.account;
 
-import android.accounts.Account;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.testiq.R;
-import com.example.testiq.account.LoginFragment;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,14 +24,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
+
 public class ResgiterFragment extends Fragment {
     private View v;
     private TextInputEditText txt_name,txt_pass,txt_email,txt_confirm;
     private Button btn_register;
     private TextView txt_login;
     private String name,email,pass,confirm;
+    private ArrayList<User> users = new ArrayList<>();
+    private FirebaseDatabase mData;
+    private DatabaseReference mRefer;
     private User user;
-    private DatabaseReference mDatabase;
     private long id = 0;
 
     @Nullable
@@ -44,43 +50,67 @@ public class ResgiterFragment extends Fragment {
         return v;
     }
 
-    private void even() {
-        btn_register.setOnClickListener(new View.OnClickListener() {
+    private void loadAccount(){
+        mRefer.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<String> keys = new ArrayList<>();
+                for(DataSnapshot keyNode : dataSnapshot.getChildren()){
+                    keys.add(keyNode.getKey());
+                    user = keyNode.getValue(User.class);
+                    users.add(user);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
 
+            }
+        });
+    }
+    private void even() {
+        loadAccount();
+        btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name= txt_name.getText().toString();
-                email= txt_email.getText().toString();
-                pass= txt_pass.getText().toString();
-                confirm= txt_confirm.getText().toString();
+                name = txt_name.getText().toString();
+                email = txt_email.getText().toString();
+                pass = txt_pass.getText().toString();
+                confirm = txt_confirm.getText().toString();
 
-                if(TextUtils.isEmpty(name)){
+                for (int i = 0; i <= users.size() - 1; i++) {
+                    if (name.equals(users.get(i).getUsername())) {
+                        txt_name.clearFocus();
+                        txt_name.setText(" ");
+                        txt_name.findFocus();
+                        Toast.makeText(getContext(), "Tên đã tồn tại, mời nhập tên mới!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if (TextUtils.isEmpty(name)) {
                     txt_name.findFocus();
                     Toast.makeText(getContext(), "Nhập họ tên!", Toast.LENGTH_SHORT).show();
                 }
-                else if (TextUtils.isEmpty(email)) {
+                else if ( TextUtils.isEmpty(email)) {
                     txt_email.findFocus();
                     Toast.makeText(getContext(), "Nhập địa chỉ email!", Toast.LENGTH_SHORT).show();
-                    }
+                }
                 else if (TextUtils.isEmpty(pass)) {
                     txt_pass.findFocus();
                     Toast.makeText(getContext(), "Nhập mật khẩu!", Toast.LENGTH_SHORT).show();
-                    }
-                else if(TextUtils.isEmpty(confirm)){
+                }
+                else if (TextUtils.isEmpty(confirm)) {
                     txt_confirm.findFocus();
                     Toast.makeText(getContext(), "Nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
                 }
-
-                else if(!confirm.equals(pass)){
+                else if (!confirm.equals(pass)) {
                     txt_confirm.setText("");
                     txt_confirm.findFocus();
-                    Toast.makeText(getContext(),"Nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Save();
-
-                    Toast.makeText(getContext(),"Đăng ký thành công!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                     loadFragment(new LoginFragment());
+                    Save();
                 }
             }
         });
@@ -94,18 +124,18 @@ public class ResgiterFragment extends Fragment {
     }
 
     private void Save() {
-
         user.setUsername(name.trim());
         user.setEmail(email.trim());
         user.setPassword(pass.trim());
         user.setConfirmpass(confirm.trim());
-
-        mDatabase.child(String.valueOf(id+1)).setValue(user);
+        mRefer.child(String.valueOf(id+1)).setValue(user);
     }
 
     private void findviewbyid() {
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Account");
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mData = FirebaseDatabase.getInstance();
+        mRefer= mData.getReference("Account");
+
+        mRefer.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
@@ -125,10 +155,7 @@ public class ResgiterFragment extends Fragment {
         txt_email = (TextInputEditText)v.findViewById(R.id.edit_register_email);
         txt_pass = (TextInputEditText)v.findViewById(R.id.edit_register_password);
         txt_confirm = (TextInputEditText)v.findViewById(R.id.edit_register_confirm);
-
-
     }
-
     private void loadFragment(Fragment fragment) {
         String backStateName = fragment.getClass().getName();
         FragmentManager manager = getActivity().getSupportFragmentManager();

@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ExamDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private TextView tvPhut, tvGiay,txttest;
+    private TextView tvPhut, tvGiay,txttest,tvtime;
     private String baiThi;
     private int time,exam_id;
     private int phut, giay = 0;
@@ -76,6 +76,7 @@ public class ExamDetailActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         tvGiay= (TextView)findViewById(R.id.txtsoGiaylambai);
         tvPhut=(TextView)findViewById(R.id.txtsophutlambai);
+        tvtime = findViewById(R.id.tvtime);
         txttest = findViewById(R.id.test);
     }
     private void getSession() {
@@ -92,18 +93,21 @@ public class ExamDetailActivity extends AppCompatActivity {
                 tvPhut.setText(phut +"");
                 tvGiay.setText(giay +"");
                 giay--;
-                if(giay<=0){
-                    giay=59;
-                    phut =phut-1;
+                if(giay <= 0){
+                        giay = 59;
+                        phut = phut - 1;
                 }
             }
             @Override
             public void onFinish() {
+                tvtime.setText("");
+                tvPhut.setText("Hết thời gian làm bài !!!");
+                tvGiay.setText("");
+
+                Toast.makeText(ExamDetailActivity.this,"Hết thời gian làm bài !!!",Toast.LENGTH_LONG).show();
             }
         };
         countDownTimer.start();
-        if(giay == 0 && phut == 0 ){
-            Toast.makeText(ExamDetailActivity.this,"Hết thời gian làm bài !!!",Toast.LENGTH_LONG).show();
-        }
+
     }
 }

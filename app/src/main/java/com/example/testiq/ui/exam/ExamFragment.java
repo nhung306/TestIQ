@@ -64,8 +64,8 @@ public class ExamFragment extends Fragment {
         examArrayList.add(new Exam("Bài test thứ 4",R.drawable.b4,5,4));
         examArrayList.add(new Exam("Bài test thứ 5",R.drawable.b5,5,5));
         examArrayList.add(new Exam("Bài test thứ 6",R.drawable.b6,7,6));
-        examArrayList.add(new Exam("Bài test thứ 7",R.drawable.b7,7,7));
-        examArrayList.add(new Exam("Bài test thứ 8",R.drawable.b8,5,8));
+//        examArrayList.add(new Exam("Bài test thứ 7",R.drawable.b7,7,7));
+//        examArrayList.add(new Exam("Bài test thứ 8",R.drawable.b8,5,8));
 
 
     }
