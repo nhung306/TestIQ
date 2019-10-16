@@ -1,6 +1,9 @@
 package com.example.testiq;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.testiq.account.LoginFragment;
@@ -8,6 +11,7 @@ import com.example.testiq.ui.infor.InforFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -55,6 +59,30 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+       switch (item.getItemId()){
+           case R.id.btn_out:
+               AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+               builder1.setTitle("Thông báo");
+               builder1.setMessage("Bạn muốn thoát ứng dụng?");
+               builder1.setCancelable(true);
+               builder1.setPositiveButton("OK", new
+                       DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                               intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                               startActivity(intent);
+                           }
+                       });
+               AlertDialog alertDialog = builder1.create();
+               alertDialog.show();
+               break;
+       }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,19 +32,29 @@
             android:textColor="#000"
             android:textSize="35dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_username"
-                android:id="@+id/edit_login_username"
-                android:drawablePadding="16dp"
-                android:hint="@string/Ho_ten"
-                android:padding="16dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_login_username"
+                android:layout_marginLeft="10dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_login_username"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/Ho_ten"
+                    android:padding="16dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,6 +95,14 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/Dang_nhap" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#26C6DA"
+            android:id="@+id/txt_forgot"
+            android:text="@string/forgot"/>
     </LinearLayout>
 
     <LinearLayout
@@ -100,16 +119,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Chua_co_tai_khoan"
-            />
-
+            android:text="@string/Chua_co_tai_khoan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#1A1616"
             android:layout_marginLeft="5dp"
             android:id="@+id/txt_sign_up"
-            android:text="@string/Dang_ky"
-            />
+            android:text="@string/Dang_ky"/>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

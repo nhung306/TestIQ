@@ -36,7 +36,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class LoginFragment extends Fragment {
     private View v;
     private Button btn_login;
-    private TextView txt_register;
+    private TextView txt_register,txt_forgot;
     private TextInputEditText edit_name,edit_pass;
 
     private ArrayList <User> users = new ArrayList<>();
@@ -53,7 +53,6 @@ public class LoginFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_login,container,false);
         findviewbyid();
         even();
-
         return v;
     }
 
@@ -75,6 +74,7 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
     private void even() {
         loadAccount();
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -93,21 +93,28 @@ public class LoginFragment extends Fragment {
                          editor.putString("Name",username);
                          editor.putString("Pass", pass);
                          editor.putString("Email",users.get(i).getEmail());
+                         editor.putString("Confirm",users.get(i).getConfirmpass());
                          editor.apply();
-
                      }
                  }
-
-
-                 if(!username.equals(user.getUsername()) && !pass.equals(user.getPassword()) ){
-                    Toast.makeText(v.getContext(),"Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
-                 }
+                if (!username.equals(user.getUsername()) && !pass.equals(user.getPassword())) {
+                    Toast.makeText(v.getContext(), "Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+
         txt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadFragment(new ResgiterFragment());
+            }
+        });
+
+        txt_forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new ForgotPassFragment());
             }
         });
     }
@@ -117,11 +124,11 @@ public class LoginFragment extends Fragment {
         mData = FirebaseDatabase.getInstance();
         mRefer= mData.getReference("Account");
 
+        txt_forgot = (TextView) v.findViewById(R.id.txt_forgot);
         edit_name  =(TextInputEditText) v.findViewById(R.id.edit_login_username);
         edit_pass = (TextInputEditText) v.findViewById(R.id.edit_login_pass);
         btn_login = (Button)v.findViewById(R.id.btn_Sign_In);
         txt_register = (TextView)v.findViewById(R.id.txt_sign_up);
-
     }
     private void loadFragment(Fragment fragment) {
         String backStateName = fragment.getClass().getName();

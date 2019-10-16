@@ -103,8 +103,8 @@ public class ExamDetailActivity extends AppCompatActivity {
                 tvtime.setText("");
                 tvPhut.setText("Hết thời gian làm bài !!!");
                 tvGiay.setText("");
-
                 Toast.makeText(ExamDetailActivity.this,"Hết thời gian làm bài !!!",Toast.LENGTH_LONG).show();
+
             }
         };
         countDownTimer.start();

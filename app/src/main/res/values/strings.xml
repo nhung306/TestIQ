@@ -105,5 +105,7 @@
     <string name="infor">Thông tin tài khoản</string>
     <string name="tai_khoan">Tài khoản</string>
     <string name="save">Lưu</string>
+    <string name="forgot">Quên mật khẩu?</string>
+    <string name="new_pass">Mật khẩu mới</string>
 
 </resources>

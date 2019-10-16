@@ -35,6 +35,7 @@ public class ResgiterFragment extends Fragment {
     private Button btn_register;
     private TextView txt_login;
     private String name,email,pass,confirm;
+
     private ArrayList<User> users = new ArrayList<>();
     private FirebaseDatabase mData;
     private DatabaseReference mRefer;
@@ -50,26 +51,7 @@ public class ResgiterFragment extends Fragment {
         return v;
     }
 
-    private void loadAccount(){
-        mRefer.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> keys = new ArrayList<>();
-                for(DataSnapshot keyNode : dataSnapshot.getChildren()){
-                    keys.add(keyNode.getKey());
-                    user = keyNode.getValue(User.class);
-                    users.add(user);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.", databaseError.toException());
-
-            }
-        });
-    }
     private void even() {
-        loadAccount();
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,37 +59,23 @@ public class ResgiterFragment extends Fragment {
                 email = txt_email.getText().toString();
                 pass = txt_pass.getText().toString();
                 confirm = txt_confirm.getText().toString();
-
-                for (int i = 0; i <= users.size() - 1; i++) {
-                    if (name.equals(users.get(i).getUsername())) {
-                        txt_name.clearFocus();
-                        txt_name.setText(" ");
-                        txt_name.findFocus();
-                        Toast.makeText(getContext(), "Tên đã tồn tại, mời nhập tên mới!", Toast.LENGTH_SHORT).show();
-                    }
-                }
                 if (TextUtils.isEmpty(name)) {
                     txt_name.findFocus();
                     Toast.makeText(getContext(), "Nhập họ tên!", Toast.LENGTH_SHORT).show();
-                }
-                else if ( TextUtils.isEmpty(email)) {
+                } else if (TextUtils.isEmpty(email)) {
                     txt_email.findFocus();
                     Toast.makeText(getContext(), "Nhập địa chỉ email!", Toast.LENGTH_SHORT).show();
-                }
-                else if (TextUtils.isEmpty(pass)) {
+                } else if (TextUtils.isEmpty(pass)) {
                     txt_pass.findFocus();
                     Toast.makeText(getContext(), "Nhập mật khẩu!", Toast.LENGTH_SHORT).show();
-                }
-                else if (TextUtils.isEmpty(confirm)) {
+                } else if (TextUtils.isEmpty(confirm)) {
                     txt_confirm.findFocus();
                     Toast.makeText(getContext(), "Nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
-                }
-                else if (!confirm.equals(pass)) {
+                } else if (!confirm.equals(pass)) {
                     txt_confirm.setText("");
                     txt_confirm.findFocus();
                     Toast.makeText(getContext(), "Nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(getContext(), "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                     loadFragment(new LoginFragment());
                     Save();
@@ -134,7 +102,6 @@ public class ResgiterFragment extends Fragment {
     private void findviewbyid() {
         mData = FirebaseDatabase.getInstance();
         mRefer= mData.getReference("Account");
-
         mRefer.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

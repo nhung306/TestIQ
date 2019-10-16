@@ -31,33 +31,53 @@
             android:textColor="#000"
             android:textSize="35dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_login_username"
+                android:layout_marginLeft="10dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_username"
                 android:id="@+id/edit_register_username"
                 android:drawablePadding="16dp"
                 android:hint="@string/Ho_ten"
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_login_email"
+            android:layout_marginLeft="10dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_email"
                 android:drawablePadding="16dp"
                 android:inputType="textEmailAddress"
                 android:id="@+id/edit_register_email"
                 android:hint="@string/email"
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,7 +96,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_lock"
                 android:id="@+id/edit_register_password"
                 android:drawablePadding="16dp"
                 android:imeOptions="actionUnspecified"
@@ -104,7 +123,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_login_lock"
                 android:id="@+id/edit_register_confirm"
                 android:drawablePadding="16dp"
                 android:imeOptions="actionUnspecified"

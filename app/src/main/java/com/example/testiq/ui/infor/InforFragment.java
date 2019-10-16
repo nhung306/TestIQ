@@ -1,8 +1,11 @@
 package com.example.testiq.ui.infor;
 
 import android.Manifest;
+import android.accounts.Account;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -27,6 +30,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.testiq.AccountActivity;
 import com.example.testiq.MainActivity;
 import com.example.testiq.R;
 import com.example.testiq.account.LoginFragment;
@@ -51,7 +55,7 @@ import static com.example.testiq.account.LoginFragment.MY_PREFS_NAME;
 
 public class InforFragment extends Fragment {
     private View v;
-    private TextInputEditText e1,e2,e3;
+    private TextInputEditText e1,e2,e3,e4;
     private Button btnSelectImage,btnSave;
     private ImageView img;
 
@@ -60,7 +64,7 @@ public class InforFragment extends Fragment {
     private DatabaseReference mRefer;
     private User user;
 
-    private String name,pass,email;
+    private String name,pass,email,confirm;
     private SharedPreferences prefs;
 
 
@@ -80,8 +84,9 @@ public class InforFragment extends Fragment {
         e1 = v.findViewById(R.id.edit_hoten_infor);
         e2 = v.findViewById(R.id.edit_mk_infor);
         e3 = v.findViewById(R.id.edit_email_infor);
-        btnSelectImage = v.findViewById(R.id.btnSelectImage);
+//        btnSelectImage = v.findViewById(R.id.btnSelectImage);
         btnSave = v.findViewById(R.id.btn_save);
+        e4 = v.findViewById(R.id.edit_confirm_infor);
         img = v.findViewById(R.id.imgInfor);
 
     }
@@ -108,40 +113,41 @@ public class InforFragment extends Fragment {
         name = prefs.getString("Name","");
         pass = prefs.getString("Pass","");
         email = prefs.getString("Email","");
+        confirm = prefs.getString("Confirm","");
         e1.setText(name);
         e2.setText(pass);
         e3.setText(email);
+        e4.setText(confirm);
     }
 
     private void even() {
-        btnSelectImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.READ_EXTERNAL_STORAGE);
-                if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-                    startGallery();
-                }
-                else {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2000);
-                }
-            }
-        });
+//        btnSelectImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.READ_EXTERNAL_STORAGE);
+//                if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+//                    startGallery();
+//                }
+//                else {
+//                    ActivityCompat.requestPermissions(getActivity(),
+//                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2000);
+//                }
+//            }
+//        });
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 loadAccount();
                 for(int i= 0; i<= users.size()-1; i++){
-                    if(e1.equals(users.get(i).getUsername())){
+                    if(name.equals(users.get(i).getUsername())){
                         users.get(i).setUsername(e1.getText().toString().trim());
                         users.get(i).setPassword(e2.getText().toString().trim());
+                        users.get(i).setConfirmpass(e4.getText().toString().trim());
                         users.get(i).setEmail(e3.getText().toString().trim());
+                        mRefer.child(String.valueOf(i+1)).setValue(users.get(i));
                         Toast.makeText(getContext(),"Cập nhật thành công!",Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }
