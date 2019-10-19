@@ -28,4 +28,9 @@
         android:name="com.example.testiq.ui.infor.InforFragment"
         android:label="@string/tai_khoan"
         tools:layout="@layout/fragment_infor" />
+    <fragment
+        android:id="@+id/nav_gopy"
+        android:name="com.example.testiq.ui.gopy.GopYFragment"
+        android:label="@string/gop_y"
+        tools:layout="@layout/fragment_gop_y" />
 </navigation>

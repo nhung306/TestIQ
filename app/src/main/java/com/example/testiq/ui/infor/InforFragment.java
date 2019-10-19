@@ -46,6 +46,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
@@ -110,10 +111,10 @@ public class InforFragment extends Fragment {
 
     private void infor() {
         prefs = getActivity().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        name = prefs.getString("Name","");
-        pass = prefs.getString("Pass","");
-        email = prefs.getString("Email","");
-        confirm = prefs.getString("Confirm","");
+        name = prefs.getString("username","");
+        pass = prefs.getString("password","");
+        email = prefs.getString("email","");
+        confirm = prefs.getString("confirmpass","");
         e1.setText(name);
         e2.setText(pass);
         e3.setText(email);
@@ -121,36 +122,27 @@ public class InforFragment extends Fragment {
     }
 
     private void even() {
-//        btnSelectImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int permissionCheck = ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.READ_EXTERNAL_STORAGE);
-//                if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-//                    startGallery();
-//                }
-//                else {
-//                    ActivityCompat.requestPermissions(getActivity(),
-//                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},2000);
-//                }
-//            }
-//        });
+        loadAccount();
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadAccount();
-                for(int i= 0; i<= users.size()-1; i++){
-                    if(name.equals(users.get(i).getUsername())){
-                        users.get(i).setUsername(e1.getText().toString().trim());
-                        users.get(i).setPassword(e2.getText().toString().trim());
-                        users.get(i).setConfirmpass(e4.getText().toString().trim());
-                        users.get(i).setEmail(e3.getText().toString().trim());
-                        mRefer.child(String.valueOf(i+1)).setValue(users.get(i));
-                        Toast.makeText(getContext(),"Cập nhật thành công!",Toast.LENGTH_SHORT).show();
-                    }
-                }
+                upDate();
             }
         });
     }
+    private void upDate() {
+        for(int i= 0; i<= users.size()-1; i++){
+            if(name.equals(users.get(i).getUsername())){
+                users.get(i).setUsername(e1.getText().toString().trim());
+                users.get(i).setPassword(e2.getText().toString().trim());
+                users.get(i).setConfirmpass(e4.getText().toString().trim());
+                users.get(i).setEmail(e3.getText().toString().trim());
+                mRefer.child(String.valueOf(i+1)).setValue(users.get(i));
+                Toast.makeText(getContext(),"Cập nhật thành công!",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     private void startGallery() {
         Intent cameraIntent = new Intent(Intent.ACTION_GET_CONTENT);
         cameraIntent.setType("image/*");

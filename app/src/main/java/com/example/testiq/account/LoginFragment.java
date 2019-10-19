@@ -80,25 +80,29 @@ public class LoginFragment extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean flag = false;
+
                 username = edit_name.getText().toString();
                 pass = edit_pass.getText().toString();
                  for (int i =0; i<=users.size()-1;i++){
                      if (username.equals(users.get(i).getUsername()) && pass.equals(users.get(i).getPassword())) {
-                         Toast.makeText(v.getContext(),"Chào mừng đến với ứng dụng Test IQ",Toast.LENGTH_SHORT).show();
-                         Intent intent = new Intent(v.getContext(), MainActivity.class);
-                         startActivity(intent);
-
-                         sharedPreferences= getActivity().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                         editor.putString("Name",username);
-                         editor.putString("Pass", pass);
-                         editor.putString("Email",users.get(i).getEmail());
-                         editor.putString("Confirm",users.get(i).getConfirmpass());
-                         editor.apply();
+                         user = users.get(i);
+                         flag = true;
                      }
                  }
-                if (!username.equals(user.getUsername()) && !pass.equals(user.getPassword())) {
-                    Toast.makeText(v.getContext(), "Tên hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
+                if (username.isEmpty() && pass.isEmpty()) {
+                    Toast.makeText(v.getContext(), "Nhập tên và mật khẩu!!!", Toast.LENGTH_SHORT).show();
+                } else if (flag) {
+                    Toast.makeText(v.getContext(), "Chào mừng đến với ứng dụng Test IQ", Toast.LENGTH_SHORT).show();
+                    sharedPreferences = getContext().getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+                    sharedPreferences.edit().putString("username", user.getUsername()).apply();
+                    sharedPreferences.edit().putString("password", user.getPassword()).apply();
+                    sharedPreferences.edit().putString("email", user.getEmail()).apply();
+                    sharedPreferences.edit().putString("confirmpass", user.getConfirmpass()).apply();
+                    Intent intent = new Intent(v.getContext(), MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(v.getContext(), "Tên hoặc mật khẩu sai!!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

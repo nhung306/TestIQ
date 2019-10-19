@@ -66,7 +66,6 @@ public class ForgotPassFragment extends Fragment {
         btn_forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 loadAcc();
                 String name = txtname.getText().toString();
                 String pass = txtpass.getText().toString();
@@ -88,7 +87,6 @@ public class ForgotPassFragment extends Fragment {
                             Toast.makeText(getContext(), "Đổi mật khẩu thành công!", Toast.LENGTH_SHORT).show();
                         }
                     }
-//                    Toast.makeText(getContext(), "Bạn chưa có tài khoản của Test IQ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

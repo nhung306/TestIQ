@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +23,17 @@ import com.google.android.gms.common.api.Response;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.testiq.account.LoginFragment.MY_PREFS_NAME;
+
 public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
     private Context context;
     private ArrayList<Questions> list;
     private int check = 0;
     private int[] LC = new int[10];
-    private int d = 0, i = 0;
     private int ctl = 0;
+    private SharedPreferences prefs;
+
 
     public QuesAdapter(Context context, ArrayList<Questions> list) {
         this.context = context;
@@ -44,6 +49,7 @@ public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
 
     @Override
     public void onBindViewHolder(QuesHolder holder, final int position) {
+
         holder.txt_ques.setText("Câu hỏi: " + (position + 1));
         holder.ed1.setText(list.get(position).getContent());
         holder.r1.setText(list.get(position).getAns1());
@@ -53,6 +59,7 @@ public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
         if (position == (list.size() - 1)) {
             holder.btnKq.setVisibility(Button.VISIBLE);
         }
+
         holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -76,6 +83,7 @@ public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
                 LC[position] = check;
             }
         });
+
         holder.btnKq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +122,7 @@ public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
         private RadioButton r1,r2,r3,r4;
         private Button btnKq;
         private RadioGroup radioGroup;
+
         public QuesHolder(View itemView) {
             super(itemView);
             radioGroup = itemView.findViewById(R.id.radio);
@@ -124,6 +133,7 @@ public class QuesAdapter extends RecyclerView.Adapter<QuesAdapter.QuesHolder> {
             r2 = itemView.findViewById(R.id.radio_2);
             r3 = itemView.findViewById(R.id.radio_3);
             r4 = itemView.findViewById(R.id.radio_4);
+
         }
     }
 }

@@ -107,5 +107,7 @@
     <string name="save">Lưu</string>
     <string name="forgot">Quên mật khẩu?</string>
     <string name="new_pass">Mật khẩu mới</string>
+    <string name="gop_y">Góp ý</string>
+    <string name="opinion">Đóng góp ý kiến</string>
 
 </resources>

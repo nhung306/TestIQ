@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_exam, R.id.nav_rate_level,
-                R.id.nav_user)
+                R.id.nav_user,R.id.nav_gopy)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -68,16 +68,20 @@ public class MainActivity extends AppCompatActivity {
                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
                builder1.setTitle("Thông báo");
                builder1.setMessage("Bạn muốn thoát ứng dụng?");
-               builder1.setCancelable(true);
-               builder1.setPositiveButton("OK", new
-                       DialogInterface.OnClickListener() {
-                           @Override
-                           public void onClick(DialogInterface dialog, int which) {
-                               Intent intent = new Intent(MainActivity.this, AccountActivity.class);
-                               intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                               startActivity(intent);
-                           }
-                       });
+               builder1.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+                       intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                       startActivity(intent);
+                   }
+               })
+               .setPositiveButton("Không", new DialogInterface.OnClickListener() {
+                                   @Override
+                                   public void onClick(DialogInterface dialog, int which) {
+                                       return;
+                                   }
+               });
                AlertDialog alertDialog = builder1.create();
                alertDialog.show();
                break;

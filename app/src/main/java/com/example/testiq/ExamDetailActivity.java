@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.testiq.account.LoginFragment.MY_PREFS_NAME;
+
 public class ExamDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView tvPhut, tvGiay,txttest,tvtime;
@@ -34,7 +38,6 @@ public class ExamDetailActivity extends AppCompatActivity {
     private FirebaseDatabase mData;
     private DatabaseReference mRefer;
     private Questions q;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,7 @@ public class ExamDetailActivity extends AppCompatActivity {
         tvPhut=(TextView)findViewById(R.id.txtsophutlambai);
         tvtime = findViewById(R.id.tvtime);
         txttest = findViewById(R.id.test);
+
     }
     private void getSession() {
         Intent intent = getIntent();
